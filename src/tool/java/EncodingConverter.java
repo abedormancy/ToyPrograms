@@ -25,16 +25,17 @@ import java.util.stream.Stream;
  * @version 1.0
  * <br><b>Date:</b> Jan 18, 2016 11:56:35 PM
  */
-public class CharsetConverter {
-	
+public class EncodingConverter {
+
 	private Path rootPath;
 	// key为文件， value为探测出的编码
 	private Map<Path, Charset> mapped = new HashMap<>();
 
-    private List<Charset> charsetList = Stream.of("utf-8", "gbk").map(c -> Charset.forName(c))
-            .collect(Collectors.toList());
-    private Set<String> extensionSet = new HashSet<String>() {
+	private List<Charset> charsetList = Stream.of("utf-8", "gbk").map(c -> Charset.forName(c))
+			.collect(Collectors.toList());
+	private Set<String> extensionSet = new HashSet<String>() {
 		private static final long serialVersionUID = -5130320059601468922L;
+
 		{
 			add(".java");
 			add(".txt");
@@ -47,12 +48,12 @@ public class CharsetConverter {
 		}
 	};
 	private int maxLength = charsetList.stream().mapToInt(c -> c.name().length()).max().getAsInt();
-	
-	public CharsetConverter() {
+
+	public EncodingConverter() {
 		this("");
 	}
-	
-	public CharsetConverter(String rootPath) {
+
+	public EncodingConverter(String rootPath) {
 		if (".".equals(rootPath)) rootPath = "";
 		this.rootPath = Paths.get(rootPath).toAbsolutePath();
 		if (!Files.isReadable(this.rootPath)) throw new IllegalArgumentException("路径不能读取.");
@@ -220,7 +221,7 @@ public class CharsetConverter {
 		}
 		
 		long begin = System.nanoTime();
-		CharsetConverter converter = new CharsetConverter(args[0]);
+		EncodingConverter converter = new EncodingConverter(args[0]);
 		switch(args.length) {
 			case 1:
 				converter.typeFiles();
