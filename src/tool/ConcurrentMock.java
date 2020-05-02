@@ -1,11 +1,7 @@
-package tool.java;
+package tool;
 
-import sun.management.snmp.jvminstr.JvmThreadInstanceEntryImpl;
-
-import java.lang.reflect.Proxy;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.LongAdder;
-import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 /**

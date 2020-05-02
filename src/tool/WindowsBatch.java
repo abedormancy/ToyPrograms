@@ -1,4 +1,4 @@
-package tool.java;
+package tool;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

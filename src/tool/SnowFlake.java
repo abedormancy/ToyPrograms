@@ -1,4 +1,4 @@
-package tool.java;
+package tool;
 
 /**
  * 分布式 id 生成, 代码来自于 Twitter SnowFlake 算法
