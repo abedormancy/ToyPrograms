@@ -23,6 +23,5 @@ hs_err_pid*
 
 # out
 *.iml
-.idea/
 out/
 target/
